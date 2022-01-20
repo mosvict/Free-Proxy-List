@@ -24,7 +24,7 @@ try:
     session = requests.Session()
     result = session.get(g_base_url)
     soup = BeautifulSoup(result.content, 'html.parser')
-    table_arr = soup.select('table#proxylisttable')
+    table_arr = soup.select('div.fpl-list > table')
     if len(table_arr) > 0:
         table_tbody_arr = table_arr[0].select('tbody')
         if len(table_tbody_arr) > 0:
